@@ -60,7 +60,7 @@ function views() {
     .then(function(res){
         switch(res.views){
             case "All Employees":
-             console.log("All Employees");
+             allEmployees();
              break;
             case ("View Departments"):
              console.log("View Departments");
@@ -73,6 +73,15 @@ function views() {
 
         }
     })
+}
+
+function allEmployees() {
+    connection.query("SELECT first_name FROM employee", function(err, res) {
+        if (err) {throw err};
+        console.table(res);
+    })
+    
+    
 }
 
 connection.end();
