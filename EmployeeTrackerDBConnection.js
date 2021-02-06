@@ -13,6 +13,39 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
     if (err) throw err;
     console.log('connected as id ' + connection.threadId);
-    connection.end();
+    init()
+    
 })
+
+function init() {
+    inquirer.prompt([
+        {
+        type: "list",
+        name: "begin",
+        message: "Please select from the options below",
+        choices: ["View", "Add", "Update", "Exit"]
+        }
+    ])
+    .then (function(res){
+        switch(res.init){
+           case "View":
+               console.log("View");
+               break;
+           case "Add":
+               console.log("Add");
+               break;
+           case "Update":
+               console.log("Update");
+               break;
+           case "Exit":
+               console.log("Exit");
+               break;
+           default:
+        }
+    });
+
+    
+}
+
+connection.end();
 
