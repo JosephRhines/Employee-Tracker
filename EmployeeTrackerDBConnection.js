@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
 });
 
 connection.connect((err) => {
-    if (err) throw err;
+    if (err) {throw err};
     console.log('connected as id ' + connection.threadId);
     init()
     
@@ -76,13 +76,19 @@ function views() {
 }
 
 function allEmployees() {
-    connection.query("SELECT first_name FROM employee", function(err, res) {
-        if (err) {throw err};
-        console.table(res);
+    connection.query("SELECT first_name FROM employee") 
+    .then( function(res){
+        console.table(res)
     })
-    
-    
+    .catch(function(err){
+        console.log("Something went wrong")
+        console.error(err)
+    })
 }
 
-connection.end();
+// connection.end();
+      
+        
+    
+    
 
