@@ -27,7 +27,7 @@ function init() {
         }
     ])
     .then (function(res){
-        switch(res.init){
+        switch(res.begin){
            case "View":
                console.log("View");
                break;
