@@ -29,7 +29,7 @@ function init() {
     .then (function(res){
         switch(res.begin){
            case "View":
-               console.log("View");
+               views();
                break;
            case "Add":
                console.log("Add");
@@ -41,10 +41,38 @@ function init() {
                console.log("Exit");
                break;
            default:
+               console.log("default")
         }
     });
 
     
+}
+
+function views() {
+    inquirer.prompt([
+        {
+            type: "list",
+            name: "views",
+            message: "Select which option you would like to view below",
+            choices: ["All Employees", "View Departments", "View Roles"]
+        }
+    ])
+    .then(function(res){
+        switch(res.views){
+            case "All Employees":
+             console.log("All Employees");
+             break;
+            case ("View Departments"):
+             console.log("View Departments");
+             break;
+            case ("View Roles"):
+             console.log("View Roles");
+             break;
+            default:
+             console.log("Default")
+
+        }
+    })
 }
 
 connection.end();
