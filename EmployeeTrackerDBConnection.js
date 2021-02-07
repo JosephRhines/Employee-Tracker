@@ -176,11 +176,35 @@ function addEmployee(){
   inquirer.prompt([
       {
           type:"input",
-          name:"employee",
-          message: "What Employee would you like to add"
+          name:"first_name",
+          message: "What is the Employees first name"
+      },
+
+      {
+          type:"input",
+          name: "last_name",
+          message: "What is the Employees last name"
+      },
+
+      {
+          type:"number",
+          name: "role_id",
+          message: "What is the Employees role id"
+      },
+
+      {
+          type:"number",
+          name: "manager_id",
+          message: "What is the manager id"
       }
   ])
-  console.log("employee")
+  .then(function(response) {
+      connection.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('${response.first_name}', '${response.last_name}', '${response.role_id}', '${response.manager_id}')`,
+      function(err, res){
+          if (err) throw err;
+      })
+  })
+  
 }
 
 function updateEmployee(){
