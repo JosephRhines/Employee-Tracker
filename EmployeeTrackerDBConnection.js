@@ -35,7 +35,7 @@ function init() {
                add();
                break;
            case "Update":
-               console.log("Update");
+               updateEmployee();
                break;
            case "Exit":
                console.log("Exit");
@@ -160,4 +160,14 @@ function addEmployee(){
   console.log("employee")
 }
 
-// function updateEmployee(){}
+function updateEmployee(){
+    inquirer.prompt([
+        {
+            type:"list",
+            name:"employee",
+            messsage:"Please select the employee you want to update",
+            choices: ["joe", "karen", "jill", "gustaf"]
+        }
+    ])
+    
+}
