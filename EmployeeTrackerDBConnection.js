@@ -32,7 +32,7 @@ function init() {
                views();
                break;
            case "Add":
-               console.log("Add");
+               add();
                break;
            case "Update":
                console.log("Update");
@@ -99,7 +99,31 @@ function roleView() {
     });
 }
 
-      
+function add() {
+    inquirer.prompt([
+        {
+            type:"list",
+            name:"add",
+            message: "Select what you would like to add below",
+            choices: ["Add Department", "Add Role", "Add Employee"]
+        }
+    ])
+    .then(function(res){
+        switch(res.add){
+            case "Add Department":
+                console.log("add department")
+                break;
+            case "Add Role":
+                console.log("Add Role")
+                break;
+            case "Add Employee":
+                console.log("Add Employee")
+                break;
+            default:
+                console.log("default")
+        }
+    })
+}
         
     
     
