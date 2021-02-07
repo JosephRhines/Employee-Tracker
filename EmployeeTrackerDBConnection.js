@@ -38,7 +38,7 @@ function init() {
                updateEmployee();
                break;
            case "Exit":
-               console.log("Exit");
+               connection.end();
                break;
            default:
                console.log("default")
@@ -88,6 +88,7 @@ function departmentView() {
     connection.query("SELECT * FROM department", function(error, res){
         if (error) throw error;
         console.table(res);
+        // init()
     });
     
 }
