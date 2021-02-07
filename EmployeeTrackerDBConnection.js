@@ -76,16 +76,13 @@ function views() {
 }
 
 function allEmployees() {
-    connection.query("SELECT first_name FROM employee") 
-    .then( function(res){
-        console.table(res)
-    })
-    .catch(function(err){
-        console.log("Something went wrong")
-        console.error(err)
-    })
-}
+    connection.query("SELECT * FROM employee", function(error, res) {
+        if (error) throw error;
+        console.table(res);
+    });
 
+
+}
 // connection.end();
       
         
