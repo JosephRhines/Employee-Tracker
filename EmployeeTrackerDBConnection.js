@@ -117,7 +117,7 @@ function add() {
                 addRole()
                 break;
             case "Add Employee":
-                console.log("Add Employee")
+                addEmployee()
                 break;
             default:
                 console.log("default")
@@ -149,3 +149,15 @@ function addRole() {
     console.log("role")
 }
 
+function addEmployee(){
+  inquirer.prompt([
+      {
+          type:"input",
+          name:"employee",
+          message: "What Employee would you like to add"
+      }
+  ])
+  console.log("employee")
+}
+
+// function updateEmployee(){}
