@@ -79,6 +79,7 @@ function allEmployees() {
     connection.query("SELECT * FROM employee", function(error, res) {
         if (error) throw error;
         console.table(res);
+        init()
     });
 
 
@@ -88,7 +89,7 @@ function departmentView() {
     connection.query("SELECT * FROM department", function(error, res){
         if (error) throw error;
         console.table(res);
-        // init()
+        init()
     });
     
 }
@@ -97,6 +98,7 @@ function roleView() {
     connection.query("SELECT * FROM roles", function(error, res){
         if (error) throw error;
         console.table(res);
+        init()
     });
 }
 
@@ -138,9 +140,11 @@ function addDepartment() {
     .then(function(response) {
         connection.query(`INSERT INTO department (name) VALUES('${response.department}');`, function(err, res) {
             if (err) throw err;
+            console.log("Department Added Successfully")
+            init()
         })
     })
-    // console.log("default department")
+    
 }
         
     
@@ -169,8 +173,11 @@ function addRole() {
         connection.query(`INSERT INTO roles (title, salary, department_id) VALUES ('${response.title}', '${response.salary}', '${response.department_id}');`,
         function(err, res) {
             if (err) throw err;
+            console.log("Role Added Successfully")
+            init()
         })
     })
+    
 }
 
 function addEmployee(){
@@ -203,6 +210,8 @@ function addEmployee(){
       connection.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('${response.first_name}', '${response.last_name}', '${response.role_id}', '${response.manager_id}')`,
       function(err, res){
           if (err) throw err;
+          console.log("Employee added Successfully")
+          init()
       })
   })
   
