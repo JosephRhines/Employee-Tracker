@@ -66,7 +66,7 @@ function views() {
              departmentView();
              break;
             case ("View Roles"):
-             console.log("View Roles");
+             roleView();
              break;
             default:
              console.log("Default")
@@ -90,6 +90,13 @@ function departmentView() {
         console.table(res);
     });
     
+}
+
+function roleView() {
+    connection.query("SELECT * FROM roles", function(error, res){
+        if (error) throw error;
+        console.table(res);
+    });
 }
 
       
