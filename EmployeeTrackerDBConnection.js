@@ -111,7 +111,7 @@ function add() {
     .then(function(res){
         switch(res.add){
             case "Add Department":
-                console.log("add department")
+                addDepartment()
                 break;
             case "Add Role":
                 console.log("Add Role")
@@ -123,6 +123,18 @@ function add() {
                 console.log("default")
         }
     })
+}
+
+function addDepartment() {
+    inquirer.prompt([
+        {
+            type:"input",
+            name:"department",
+            message:"What department would you like to add"
+        }
+    
+    ])
+    console.log("default department")
 }
         
     
