@@ -114,7 +114,7 @@ function add() {
                 addDepartment()
                 break;
             case "Add Role":
-                console.log("Add Role")
+                addRole()
                 break;
             case "Add Employee":
                 console.log("Add Employee")
@@ -138,5 +138,14 @@ function addDepartment() {
 }
         
     
-    
+function addRole() {
+    inquirer.prompt([
+        {
+            type:"input",
+            name:"role",
+            message:"What role would you like to add"
+        }
+    ])
+    console.log("role")
+}
 
