@@ -147,11 +147,29 @@ function addRole() {
     inquirer.prompt([
         {
             type:"input",
-            name:"role",
-            message:"What role would you like to add"
+            name:"title",
+            message:"What is the name role would you like to add"
+        },
+
+        {
+           type:"number",
+           name: "salary",
+           message: "What is the salary for the role"
+
+        },
+
+        {
+            type:"input",
+            name: "department_id",
+            message: "What is the department_id"
         }
     ])
-    console.log("role")
+    .then(function(response) {
+        connection.query(`INSERT INTO roles (title, salary, department_id) VALUES ('${response.title}', '${response.salary}', '${response.department_id}');`,
+        function(err, res) {
+            if (err) throw err;
+        })
+    })
 }
 
 function addEmployee(){
