@@ -63,7 +63,7 @@ function views() {
              allEmployees();
              break;
             case ("View Departments"):
-             console.log("View Departments");
+             departmentView();
              break;
             case ("View Roles"):
              console.log("View Roles");
@@ -83,7 +83,15 @@ function allEmployees() {
 
 
 }
-// connection.end();
+
+function departmentView() {
+    connection.query("SELECT * FROM department", function(error, res){
+        if (error) throw error;
+        console.table(res);
+    });
+    
+}
+
       
         
     
