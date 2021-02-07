@@ -134,7 +134,12 @@ function addDepartment() {
         }
     
     ])
-    console.log("default department")
+    .then(function(response) {
+        connection.query(`INSERT INTO department (name) VALUES('${response.department}');`, function(err, res) {
+            if (err) throw err;
+        })
+    })
+    // console.log("default department")
 }
         
     
