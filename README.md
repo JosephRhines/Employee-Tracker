@@ -21,3 +21,5 @@ The information that can be viewed is shown in a table in the console.
 
 ## Links:
 https://github.com/JosephRhines/Employee-Tracker
+<br>
+https://drive.google.com/file/d/1b9a50NdBobZ2w57_7ykDYgO_CMSvC-mc/view
