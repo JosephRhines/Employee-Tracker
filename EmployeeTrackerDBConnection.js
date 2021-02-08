@@ -218,17 +218,38 @@ function addEmployee(){
 }
 
 function updateEmployee(){
-     
-    inquirer.prompt([
-        {
-            type:"list",
-            name:"employee",
-            messsage:"Please select the employee you want to update",
-            choices: ["joe", "karen", "jill", "gustaf", "Jen"]
+     connection.query(`SELECT id, first_name, last_name from employee;`, function (err, results) {
+         if (err) throw err;
+         let employeeArr = [];
 
-        }
-        
-    ])
+         for (let i = 0; i < results.length; i++) {
+             let employee = {name:results[i].first_name + " " + results[i].last_name, value:results[i].id}
+             employeeArr.push(employee);
+         }
+         inquirer.prompt([
+            {
+                type:"list",
+                name:"employee",
+                messsage:"Please select the employee you want to update",
+                choices: employeeArr
+    
+            },
+
+            {
+                type:"input",
+                name: "roleId",
+                message: "What would you like the new role id to be"
+            }
+            
+        ]).then(answers => {
+            console.log(answers)
+            connection.query(`UPDATE  employee SET role_id = ? WHERE id = ?`, [answers.roleId, answers.employee], function (err, results) {
+                if (err) throw err;
+                init()
+            })
+        })  
+     })
+   
     
     
 }
