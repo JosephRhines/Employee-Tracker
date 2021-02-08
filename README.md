@@ -10,8 +10,10 @@ Application that is an Employee Management System
 * Mysql
 
 ## User Expierence:
-The user is presented with prompts that allows the user to View Employee information and Add additional Employees, Departments, and Roles.
-The information that can be viewed is shown in a table in the console.
+The user is presented with prompts that allows the user to View Employee information, Add additional Employees, Departments, Roles, and Update Employee Roles. The information that can be viewed is shown in a table in the console.
+<br>
+
+## Images of Prompt and Table:
 <br>
 <br>
 <img src = ./images/prompt.jpg>
@@ -22,4 +24,4 @@ The information that can be viewed is shown in a table in the console.
 ## Links:
 https://github.com/JosephRhines/Employee-Tracker
 <br>
-https://drive.google.com/file/d/1b9a50NdBobZ2w57_7ykDYgO_CMSvC-mc/view
+https://drive.google.com/file/d/1c2KDUWaamFTpOYwTrH0msZnpOB89SfUT/view
