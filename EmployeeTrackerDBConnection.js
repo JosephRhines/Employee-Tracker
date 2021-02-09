@@ -153,7 +153,7 @@ function addRole() {
         {
             type:"input",
             name:"title",
-            message:"What is the name role would you like to add"
+            message:"What is the name of the role you would like to add"
         },
 
         {
